@@ -9,6 +9,17 @@ To investigate how to measure waiting time for a user's interactions with a web 
 ### Total Completed interactive Load (TCiL):
 represents the num-ber  of  times  that  the  iLT  is  successfully  measured  for  theentire session time. 
 
+## Study Proccess and Parameters
+For more information about study proccess and parameters please read the published paper from [paper-url]
+
+## Quick start
+If you want to run analysis on the collected data, please use dataset and analysis folders
+If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/webqoe.html
+If you want re-run the same subjective study:
+- please copy  the  experimental platform/ onn a linux machine,
+- run ``` node server.js ``` 
+- use client/index.html on a client machine and follow the test procedures.
+
 ## Repository Structure 
 
 ### helper.py
@@ -29,4 +40,11 @@ This folder contained clean data proccessed by helper.py.
 ### questionnaire 
 Includes demographical and previous information of the participants
 
+## Contributors
+Mr. Hamed Jahromi
+Dr. Declan Delaney
+Dr. Andrew Hines 
 
+## How to cite?
+If you want to cite thei data, please use the publication in IEE:
+[bib info]
