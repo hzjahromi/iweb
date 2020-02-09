@@ -8,8 +8,9 @@ This folder includes the raw data collected during the subjective study. The dat
 
 This folder contained clean data processed using helper.py to extract the required information from the collected data. Unnecessary timestamps are stripped from the raw data. 
 
-$\text{MOS}_j=\frac{\sum_{i=1}^{N}m_{ij}}{N}$
+$$
 
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\text{MOS}_j=\frac{\sum_{i=1}^{N}m_{ij}}{N}" title="\Large x=\text{MOS}_j=\frac{\sum_{i=1}^{N}m_{ij}}{N}" />
 
 
 ## questionnaire 
