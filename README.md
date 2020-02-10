@@ -22,6 +22,7 @@ The main python dependencies for analysing the data are:
 - Seaborn
 - Statsmodels
 - Scikit-learn
+
 Please not that the python codes available in this repository have been developed using Python 3.6. 
 
 The main dependencies for running the experimental platfrom:
