@@ -33,13 +33,13 @@ The main dependencies for running the experimental platfrom:
 
 If you want to run analysis on the collected data, please use dataset and analysis folders.
 
-If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/webqoe.html
+If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/web-client/map-webqoe.html
 
-If you want run the experimental platfromy:
+If you want run the experimental platfrom:
 
 - Please copy  the  experimental platform folder to your linux machine,
 - run ``` node experimental platform/server/server.js [participantid.csv] ``` . Replace the particiapant id. This code needs to be ran for each partiticpant. The collected data from  will be saved in a separate csv file. 
-- Under client folder, exctract map_tiles.zip and sat_tiles.zop
+- Downlload http://netverge.net/map-tiles.zip and http://netverge.net/sat-tiles.zip.  Extract them Under client/map-tiles and client/sat-tiles, respectively.
 - Run ``` node experimental platform/client/http_server.js ``` 
 - Open the web page via ip address / machine name. i.e. http://localhost/index.html 
 
