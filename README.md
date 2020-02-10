@@ -65,7 +65,9 @@ Includes demographical and previous information of the participants.
 
 ## Contributors
 Mr. Hamed Jahromi
+
 Dr. Declan Delaney
+
 Dr. Andrew Hines 
 
 ## How to cite?
