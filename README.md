@@ -69,5 +69,5 @@ Dr. Declan Delaney
 Dr. Andrew Hines 
 
 ## How to cite?
-If you want to cite thei data, please use the publication in IEEE:
+If you want to cite the data / platform, please cite the followying paper:
 [bib info]
