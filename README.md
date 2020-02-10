@@ -18,7 +18,10 @@ If you want to see how did we instrument a web mapping application to measue iLT
 If you want re-run the same subjective study:
 - please copy  the  experimental platform/ onn a linux machine,
 - run ``` node server.js ``` 
-- use client/index.html on a client machine and follow the test procedures.
+- use client/index.html on a client machine and follow the test procedures. Please note that some browser may not allow you to submit ajax form when you run the html file localyl. If you want host the client files
+- - Copy the client folder to your linux machine
+- - Run ``` http_server.js ``` from the client folder 
+- - Open the web page via ip address / machine name. i.e. http://localhost/index.html 
 
 ## Repository Structure 
 
