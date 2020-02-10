@@ -12,7 +12,24 @@ represents the num-ber  of  times  that  the  iLT  is  successfully  measured  f
 ## Study Proccess and Parameters
 For more information about study proccess and parameters please read the published paper from [paper-url]
 
+## Dependencies
+The main python dependencies for analysing the data are:
+- NumPy
+- SciPy
+- Pandas
+- Pandas-flavor
+- Matplotlib
+- Seaborn
+- Statsmodels
+- Scikit-learn
+Please not that the python codes available in this repository have been developed using Python 3.6. 
+
+The main dependencies for running the experimental platfrom:
+- Ubuntu or CentOS
+- node js
+
 ## Quick start
+
 If you want to run analysis on the collected data, please use dataset and analysis folders
 If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/webqoe.html
 If you want re-run the same subjective study:
@@ -20,7 +37,7 @@ If you want re-run the same subjective study:
 - run ``` node server.js ``` 
 - use client/index.html on a client machine and follow the test procedures. Please note that some browser may not allow you to submit ajax form when you run the html file localyl. If you want host the client files
   - Copy the client folder to your linux machine
-  - Run ``` http_server.js ``` from the client folder 
+  - Run ``` node http_server.js ``` from the client folder 
   - Open the web page via ip address / machine name. i.e. http://localhost/index.html 
 
 ## Repository Structure 
