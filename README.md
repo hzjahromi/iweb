@@ -38,7 +38,7 @@ If you want to see how did we instrument a web mapping application to measure iL
 If you want to run the experimental platform:
 
 - Please copy  the  experimental platform folder to your Linux machine,
-- run ``` node experimental platform/server/server.js [participantid.csv] ``` . Replace the participant id. This code needs to run for each participant. The collected data will be saved in a separate CSV file. 
+- run ``` node experimental platform/server/server.js [participantid.csv] ```. Replace the participant id. This code needs to run for each participant. The collected data will be saved in a separate CSV file. 
 - Download http://netverge.net/map-tiles.zip and http://netverge.net/sat-tiles.zip.  Extract them Under client/map-tiles and client/sat-tiles, respectively.
 - Run ``` node experimental platform/client/http_server.js ``` 
 - Open the web page via IP address/machine name. i.e. http://localhost/index.html 
@@ -47,17 +47,17 @@ If you want to run the experimental platform:
 
 ### helper.py
 
-helper.py reads the raw data from dataset/raw_data/raw_data.csv and extracts the required information from the collected data. iLT and CiLT are computed based on the equations explained in [published url].
+helper.py reads the raw data from dataset/raw_data/raw_data.csv and extracts the required information from the collected data. iLT and TCiL are computed based on the equations explained in [published url].
 
 ## Dataset Folder 
 
 ### raw_data
 
-raw_data.csv includes the raw data collected during the subjective study. The data records contain time stamps and extra information about users' clicks. i.e. the coordinates of the mouse click on the screen.  
+raw_data.csv includes the raw data collected during the subjective study. The data records contain time stamps and extra information about users clicks. i.e. the coordinates of the mouse click on the screen.  
 
 ### processed _data 
 
-dataset.csv contains clean the data processed by helper.py.
+dataset.csv contains clean data processed by helper.py.
 
 
 ### questionnaire 
