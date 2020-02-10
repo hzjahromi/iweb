@@ -32,8 +32,11 @@ The main dependencies for running the experimental platfrom:
 ## Quick start
 
 If you want to run analysis on the collected data, please use dataset and analysis folders
+
 If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/webqoe.html
+
 If you want re-run the same subjective study:
+
 - please copy  the  experimental platform/ onn a linux machine,
 - run ``` node server.js ``` 
 - use client/index.html on a client machine and follow the test procedures. Please note that some browser may not allow you to submit ajax form when you run the html file localyl. If you want host the client files
