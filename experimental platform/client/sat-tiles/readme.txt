@@ -1,0 +1,1 @@
+Download sat tiles from  http://netverge.net/sat-tiles.zip  and extract them here.

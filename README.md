@@ -31,38 +31,37 @@ The main dependencies for running the experimental platfrom:
 
 ## Quick start
 
-If you want to run analysis on the collected data, please use dataset and analysis folders
+If you want to run analysis on the collected data, please use dataset and analysis folders.
 
 If you want to see how did we instrument a web mapping application to measue iLT and CiLT, please see experminal experimental platform/client/webqoe.html
 
-If you want re-run the same subjective study:
+If you want run the experimental platfromy:
 
-- please copy  the  experimental platform/ onn a linux machine,
-- run ``` node server.js ``` 
-- use client/index.html on a client machine and follow the test procedures. Please note that some browser may not allow you to submit ajax form when you run the html file localyl. If you want host the client files
-  - Copy the client folder to your linux machine
-  - Run ``` node http_server.js ``` from the client folder 
-  - Open the web page via ip address / machine name. i.e. http://localhost/index.html 
+- Please copy  the  experimental platform folder to your linux machine,
+- run ``` node experimental platform/server/server.js [participantid.csv] ``` . Replace the particiapant id. This code needs to be ran for each partiticpant. The collected data from  will be saved in a separate csv file. 
+- Under client folder, exctract map_tiles.zip and sat_tiles.zop
+- Run ``` node experimental platform/client/http_server.js ``` 
+- Open the web page via ip address / machine name. i.e. http://localhost/index.html 
 
 ## Repository Structure 
 
 ### helper.py
 
-helper.py reads the raw data from dataset/raw_data/raw_data.csv and extracts the required information from the collected data. iLT and CiLT are computed based on the equations explained in [published url]
+helper.py reads the raw data from dataset/raw_data/raw_data.csv and extracts the required information from the collected data. iLT and CiLT are computed based on the equations explained in [published url].
 
 ## Dataset Folder 
 
 ### raw_data
 
-This folder includes the raw data collected during the subjective study. The data records contain time stamps and extra information about users' clicks. i.e. the coordinates of the mouse clicks on the screen.  
+Includes the raw data collected during the subjective study. The data records contain time stamps and extra information about users' clicks. i.e. the coordinates of the mouse clicks on the screen.  
 
 ### processed _data 
 
-This folder contained clean data proccessed by helper.py.
+Contains clean data proccessed by helper.py.
 
 
 ### questionnaire 
-Includes demographical and previous information of the participants
+Includes demographical and previous information of the participants.
 
 ## Contributors
 Mr. Hamed Jahromi
@@ -70,5 +69,5 @@ Dr. Declan Delaney
 Dr. Andrew Hines 
 
 ## How to cite?
-If you want to cite thei data, please use the publication in IEE:
+If you want to cite thei data, please use the publication in IEEE:
 [bib info]

@@ -1,0 +1,1 @@
+Download map tiles from  http://netverge.net/map-tiles.zip  and extract them here.

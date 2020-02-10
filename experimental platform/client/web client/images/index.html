@@ -1,0 +1,64 @@
+<html>
+<head>
+	
+	<title>Web QoE Experiment</title>
+	<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<meta HTTP-EQUIV="Expires" CONTENT="-1">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<script>
+			function startexp()
+			{
+				window.location.replace("webqoe.html")			
+			}
+
+</script>
+ <table style="width:100%">
+<tr>
+	<td width="100%"  bgcolor="#4682b4" colspan="3" >
+	<p style="margin-top: 20px;"> 
+	 <img src="img/ucd_logo.png" style="padding:0 15px; float: left;" height="90" width="90" />
+ 	 <font color="white" size="8">
+	 Web QoE Experiment</font> 
+	 <br/>	
+	 <font color="white" size="2">
+		  School of Computer Science   
+	  <br/>
+		  Hamed Jahromi
+
+	 </font> 
+	</p>
+	</td>
+	</tr>
+
+</table>
+
+<p><h3> The objective of this experiement</h1></p>
+<pre>
+When we browse the web or use web-based applications like maps, the network can Cause delays. This experiment explores how we perceive different delays for a map application. 
+</pre>
+<p><h3> A/B testing</h1></p>
+<pre>
+<img src="img/ab.png"><br/>
+You will be asked to compare the time 2 maps took to load and to decide whether the second map was faster or slower in loading than the first.
+- Once the two maps are loaded, user gives a feedback and declares which one was faster or slower.
+- After the second map has loaded you can choose whether it was definitely slower or faster than the first on a 5-point scale like this: 
+
+<img src="img/feedback.png"><br/>
+- If you are not sure, just choose the ‘Not Sure’ option or the definitely faster/Definitely slower is you are very confident.
+- Before the experiment you will get the opportunity to try two rounds of training samples so you know what to expect. These results will not be recorded.
+- During the experiment you will be presented with 50 map pairs. It will take approximately 20 minutes to complete. 
+- You can choose to stop participating and exit at any time.
+
+</pre>
+<center>		
+
+<br/>
+
+<button type="button" style="height:50px;width:150px" id="start" onclick="startexp();"> Next </button>
+</center>
+</body>
+</html>

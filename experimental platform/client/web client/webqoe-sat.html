@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Web QoE Experiment</title>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+	
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/leaflet-search.css">
+	<link rel="stylesheet" href="css/leaflet-search.mobile.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <link href="css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<!-- Jquery -->
+	<script src="js/jquery.min.js"></script>
+	
+	<script src="js/leaflet-search.js"></script>
+
+	
+	<!-- Jquery UI-->
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<script src="js/jquery-ui.min.js"></script>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/bootstrap.min.js"></script>
+	
+	<!-- Horizontal Slider -->
+	<link rel="stylesheet" type="text/css" href="css/horizontal_selector.css">
+	<script src="js/horizontal_selector.js"></script>
+
+	<script src="js/boomerang.js"></script>
+	<script src="js/plugins/rt.js"></script>
+
+	
+<script>
+var tdone=0;
+var tresp=0;
+var tothers="";
+BOOMR.init({
+  log: null,
+  beacon_url: null,
+  ResourceTiming: {
+    enabled: true,
+    clearOnBeacon: true
+  }
+});
+  
+BOOMR.subscribe('before_beacon', function(beaconData) {
+
+    console.log("PLT:",beaconData.t_done);
+	console.log("TTFB:",beaconData.t_resp);
+	console.log("OTHER:",beaconData.t_other);
+	tdone=beaconData.t_done;
+	tresp=beaconData.t_resp;
+	tothers=beaconData.t_other;
+	/*if(tresp>1)
+	{
+		clicksbt()
+	}*/
+	
+});
+  
+</script>
+
+     <script>
+	 
+	 
+			var itr=1;
+			var maxitr=9;
+			var counter=1;
+			var token=0;
+			var load_array=[];
+			var mouse_array=[];
+			var loadcount=0;
+			var load=0
+			var tmp
+			var tmp1;
+			var tmp2;
+			var redrawint = Math.floor( Math.random() * 200000 ) + 1
+			var getRedrawInteger = function() {
+			    return redrawint;
+			};
+			var incrementRedrawInteger = function() {
+			 redrawint += 1;
+			};
+			
+			var sec = 0;
+			function pad ( val ) { return val > 9 ? val : "0" + val; }
+
+        function f1() {
+				tmp = setTimeout(function(){rfreshthepage();},5000);
+        }
+		function f3(){
+			tmp1 = setInterval("clickload()",55000);
+		}
+		
+		function clickload() {
+            document.getElementById("btn_load").click();
+        }
+		function rfreshthepage() {
+            window.location = window.location.href.split("#")[0];
+        }
+        function clicksbt() {
+            document.getElementById("btn_sbt").click();
+        }	
+		function animateValue(parent,id, start, end, duration) {
+			var range = end - start;
+			var current = start;
+			var increment = end > start? 1 : -1;
+			var stepTime = Math.abs(Math.floor(duration / range));
+			var obj = document.getElementById(id);
+			var pobj = document.getElementById(parent);
+			obj.innerHTML = "3"
+			pobj.style.display="Block"
+			var timer = setInterval(function() {
+				current += increment;
+				obj.innerHTML = current;
+				if (current == end) {
+					clearInterval(timer);
+					pobj.style.display="none"
+				}
+			}, stepTime);
+		}
+		
+
+	
+        function callload() {
+            document.getElementById("btn_load").style.display="block";
+			document.getElementById("msg").textContent = "";
+        }
+		function empty_ar(){
+			while(load_array.length > 0) {
+			load_array.pop();
+			}
+			while(mouse_array.length > 0) {
+				mouse_array.pop();
+			}
+		}
+
+		function startexp()
+			{
+				window.location.replace("webqoe.html")			
+			}
+		function endexp()
+			{
+				window.location.replace("thankyou.html")			
+			}       			
+
+		
+			function removeElement(elementId) {
+		        // Removes an element from the document
+		        var element = document.getElementById(elementId);
+		        element.parentNode.removeChild(element);
+			};
+			
+			function addElement(parentId, elementTag, elementId, html) {
+		        // Adds an element to the document
+			        var p = document.getElementById(parentId);
+		        	var newElement = document.createElement(elementTag);
+			        newElement.setAttribute('id', elementId);
+			        newElement.innerHTML = html;
+			        p.appendChild(newElement);
+			};
+			function enableloadbtn() {
+				setTimeout(function(){document.getElementById("btn_load").disabled=false;},10000)
+			};
+
+			function btn_sbmt() {
+					token=0;
+					itr=itr+1;
+					mos=$("input[name='MOS']:checked").val();
+					obj=$("input[name='r_obj']:checked").val();
+					document.getElementById("MOS1").checked = false; 
+					document.getElementById("MOS2").checked = false; 
+					document.getElementById("MOS3").checked = false; 
+					document.getElementById("MOS4").checked = false; 
+					document.getElementById("MOS5").checked = false; 
+					document.getElementById("obj_yes").checked = false; 
+					document.getElementById("obj_no").checked = false; 
+    				// change the localhost to the ip that server.js is running on
+			        $.ajax({
+								type: 'get',
+								url: 'http://localhost:8181/',
+								async: true,
+								dataType: 'html',
+								data: 	{
+									data: 	{
+											'type': 'map',
+											'ilts' : ilt_array.filter(Boolean),
+											'acr': mos,
+											'qsr': window.location.search,
+											'obj': obj,
+											'mouse_clicks': mouse_array
+										},
+								
+										},
+								
+								complete: function() {  
+									return true;
+								}
+							});
+							
+					if(itr>maxitr)
+					{
+						window.location.replace("thankyou.html")
+					}
+					incrementRedrawInteger();
+					var emptyar=[];
+					empty_ar()
+					counter=1;
+					tile_layer.remove();				
+					tile_layer.addTo(mymap);
+					mymap.removeControl(controlSearch );
+					mymap.addControl(controlSearch );
+					mymap.setView([53.308929, -6.222811], 7);			
+					tile_layer.redraw();
+					
+				}	
+
+            $(document).ready(function() {
+		
+	
+            });
+			$(document).on('mousedown', function (event) {
+			var d= new Date(Date.now());
+			mouse_array.push(load+':'+'Down:'+Date.now()+':'+event.pageX+':'+event.pageY+':'+event.button);			
+			console.log(mouse_array);
+			// Post the event object here.
+			});
+			
+			$(document).on('mouseup', function (event) {
+			mouse_array.push('up:'+Date.now()+':'+event.pageX+'-'+event.pageY+':'+event.button);
+			// Post the event object here.
+			});
+			$(document).on('scroll', function (event) {
+			console.log('wheel');
+			});
+    </script>     
+
+	
+</head>
+<body>
+  <table style="width:100%">
+<tr>
+	<td width="80%"  bgcolor="#4682b4" colspan="2" >
+	<p style="margin-top: 20px;"> 
+	 
+ 	 <font color="white" size="3">
+ 	 <font color="white" size="3">
+	 Web QoE Experiment</font> 
+	 <br/>	
+
+	</td>
+	<td align="right" bgcolor="#4682b4">
+
+	</td>
+	</tr>
+	<tr>
+<td width="100%" align="center" colspan="3"> 
+<div id="mapid" style="width: 90%; height: 600px;" style="display:none">
+</div>
+
+
+	<script>
+	
+	
+	var data = [
+		{"loc":[53.3082,-6.2242], "title":"University College Dublin"},		
+		{"loc":[53.3203,-6.2110], "title":"Sydney Parade Train Station"}
+	];
+	
+		var mymap = L.map('mapid')
+		incrementRedrawInteger();					
+		// change the localhost to the ip that http_server.js is running on
+		mymap.on("load",function() { console.log("Map1: all visible tiles have been loaded!!"); });
+		mymap.setView([53.308929, -6.222811], 10);
+		var tile_layer=L.tileLayer('http://localhost:9000/sat-tiles/{z}/{x}/{y}.png?{randint}', {
+			
+			randint: getRedrawInteger,
+			maxZoom: 16,
+			minZoom: 10,
+			id: 'mapbox1.streets'
+		})
+		
+
+		//searchLayer is a L.LayerGroup contains searched markers		
+
+		var timestart=Date.now()
+		// setting initial value for ilt to 0
+		load=0;
+		load_array[loadcount]=Date.now();
+		tile_layer.addTo(mymap);
+		
+		
+		var markersLayer = new L.LayerGroup();	//layer contain searched elements
+		
+		mymap.addLayer(markersLayer);
+
+		var controlSearch = new L.Control.Search({
+			position:'topleft',		
+			layer: markersLayer,
+			initial: false,
+			zoom: 14,
+			marker: false
+		});
+
+		mymap.addControl(controlSearch );
+
+		for(i in data) {
+		var title = data[i].title,	//value searched
+			loc = data[i].loc,		//position found
+			marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
+		marker.bindPopup('title: '+ title );
+		markersLayer.addLayer(marker);
+		}
+		
+
+		
+		tile_layer.on("tileloadstart",function() { 
+			load=-9;
+			// recording the first event time (E_st) for computing iLT
+			timestart=Date.now()
+			load_array[loadcount]=timestart;
+		});
+
+
+		tile_layer.on("load",function() { 
+			// computing ilt = E_et - E_st
+			load=Date.now()-timestart
+			load_array[loadcount]=load_array[loadcount]+':'+load;
+			loadcount=loadcount+1;
+			console.log("Map1: Load Time=",load_array) 			
+		});
+		
+
+</script>
+ 
+	</td>
+ </tr>
+ </table>
+ 
+ 
+
+ 
+<div id="cnt1">
+<div id="selectorContainer">
+<form id="testForm">
+
+<center><b>
+Were you able to  acheieve your objective?</br>
+<input type="radio" id="obj_yes" name="r_obj" value="1"> Yes &nbsp;&nbsp; &nbsp;
+<input type="radio" id="obj_no" name="r_obj" value="0"> No &nbsp;&nbsp;&nbsp;
+<br/><br/> How do you feedback the experienced quality?<br/>
+<input type="radio" id="MOS1" name="MOS" value="1"> Bad &nbsp;&nbsp; &nbsp;
+<input type="radio" id="MOS2" name="MOS" value="2"> Poor &nbsp;&nbsp;&nbsp;
+<input type="radio" id="MOS3" name="MOS" value="3"> Fair &nbsp;&nbsp;&nbsp;
+<input type="radio" id="MOS4" name="MOS" value="4"> Good &nbsp;&nbsp;&nbsp;
+<input type="radio" id="MOS5" name="MOS" value="5">  Excellent
+</b></center>
+
+</form>
+<br/><center>
+ <button type="button" style="height:30px;width:100px" id="btn_sbt" onclick="btn_sbmt();"> Next</button></center> 
+ <script>
+
+</script>
+</div>
+</div>
+<center>
+<div>
+</center>  
+</body>
+</html>
