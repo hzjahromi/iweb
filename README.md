@@ -33,7 +33,7 @@ The main dependencies for running the experimental platform:
 
 If you want to run an analysis on the collected data, please use dataset and analysis folders.
 
-If you want to see how did we instrument a web mapping application to measure iLT and CiLT, please see experimental platform/client/web-client/map-webqoe.html
+If you want to see how did we instrument a web mapping application to measure iLT and TCiL, please see experimental platform/client/web-client/map-webqoe.html
 
 If you want to run the experimental platform:
 
